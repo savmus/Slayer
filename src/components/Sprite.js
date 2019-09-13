@@ -81,14 +81,14 @@ Sprite.prototype.addItem = function addItem(item) {
     if (item.health) {
         this.inventory.healing.push(item);
         let menu = document.getElementById("menu");
-        menu.innerHTML += `<div class='option'>${item.name}</div>`;
+        menu.innerHTML += `<div class='option' id='${item.name}'>${item.name} +${item.health}</div>`;
     } else {
         if (!this.weapons[item.name]) {
             this.inventory.weapons.push(item);
             this.weapons[item.name] = true;
 
             let menu = document.getElementById("weapons");
-            menu.innerHTML += `<div class='weapon'>${item.name}</div>`;
+            menu.innerHTML += `<div class='weapon' id='${item.name}'>${item.name} atk${item.damage}</div>`;
         }
     }
 }

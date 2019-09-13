@@ -164,7 +164,7 @@ GameView.prototype.fightMonster = function fightMonster(monster) {
 GameView.prototype.clickHandler = function clickHandler(e) {
     e.preventDefault();
 
-    let heal = Game.items[e.target.innerHTML].health;
+    let heal = Game.items[e.target.id].health;
 
     this.sprites['player'].health += heal;
 
@@ -237,10 +237,7 @@ GameView.prototype.loop = function loop() {
                 weapon.addEventListener('click', (e) => {
                     e.preventDefault();
 
-                    that.sprites['player'].weapon = e.target.innerHTML;
-
-                    let active = document.getElementById("weapon-drop-btn");
-                    active.innerHTML = e.target.innerHTML;
+                    that.sprites['player'].weapon = e.target.id;
                 })
             });
 
@@ -309,32 +306,6 @@ GameView.prototype.createWorld = function createWorld(_numTileWidth, _numTileHei
 GameView.prototype.init = function init(key, assets) {
     document.onkeydown = this.keyDownHandler.bind(this);
     document.onkeyup = this.keyUpHandler.bind(this);
-
-    let hDrop = document.getElementById("drop-btn");
-    hDrop.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        let menu = document.getElementById("menu");
-
-        if (Array.from(menu.classList).length === 3) {
-            menu.classList.remove("hide");
-        } else {
-            menu.classList.add("hide");
-        }
-    });
-
-    let wDrop = document.getElementById("weapon-drop-btn");
-    wDrop.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        let menu = document.getElementById("weapons");
-
-        if (Array.from(menu.classList).length === 3) {
-            menu.classList.remove("hide");
-        } else {
-            menu.classList.add("hide");
-        }
-    });
 
     const that = this;
 

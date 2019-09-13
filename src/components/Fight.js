@@ -75,7 +75,7 @@ Fight.prototype.start = function start() {
     this.weaponType = new Text("20px", "Sans-Serif", "black", 35, 430, this.ctx, "Active weapon: ");
     this.weaponAttack = new Text("20px", "Sans-Serif", "black", 35, 455, this.ctx, "Attack: ");
     this.monsterAttack = new Text("20px", "Sans-Serif", "black", 425, 105, this.ctx, "Undead attack: ");
-    this.monsterName = new Text("38px", "Sans-Serif", "black", 35, 45, this.ctx, "Undead King");
+    this.monsterName = new Text("38px", "Sans-Serif", "black", 35, 45, this.ctx, "Undead");
     this.pLevel = new Text("18px", "Sans-Serif", "black", 425, 430, this.ctx, "Level ");
     this.mLevel = new Text("18px", "Sans-Serif", "black", 35, 100, this.ctx, "Level ");
 
