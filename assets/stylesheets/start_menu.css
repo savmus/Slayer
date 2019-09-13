@@ -3,3 +3,9 @@
   height: 500px;
   text-align: center;
 }
+
+#play {
+  position: absolute;
+  left: 265px;
+  top: 240px;
+}
