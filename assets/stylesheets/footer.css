@@ -2,3 +2,8 @@ footer {
     position: relative;
     top: 520px;
 }
+
+footer a {
+    font-family: sans-serif;
+    color: white;
+}

@@ -1,13 +1,33 @@
+html {
+  background: maroon;
+}
+
 #startScreen {
+  border: 2px solid black;
+  position: absolute;
+  background: white;
   width: 600px;
   height: 500px;
   text-align: center;
+  font-family: fantasy;
 }
 
 #play {
   position: absolute;
   left: 265px;
   top: 240px;
+  border: none;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  outline: none;
+}
+
+#play:hover {
+  cursor: pointer;
 }
 
 .winner, .loser {
@@ -32,4 +52,21 @@
 .credits a {
   color: rgb(100, 0, 0);
   text-decoration: none;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.start-game {
+  font-weight: 600;
+  color: maroon;
+}
+
+.instructions h2 {
+  font-size: 16px;
+}
+
+.objective, .controls, .hints {
+  font-size: 14px;
 }
