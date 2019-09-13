@@ -2,7 +2,7 @@
 
 ## Summary
 
-Slayer is a 2D single-player RPG game, where players can find, purchase, and store items, maintain certain stats such as level and health, save their progress, and meet NPCs to guide them on their quest to slay monsters in a 2D world.
+[Slayer](https://slayer-game.herokuapp.com/) is a 2D single-player RPG game, where players can find, purchase, and store items, maintain certain stats such as level and health, save their progress, and meet NPCs to guide them on their quest to slay monsters in a 2D world.
 
 Please see the following sections for more details.
 
