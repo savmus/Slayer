@@ -4,6 +4,7 @@ const Game = require('./Game');
 const Chest = require('./Chest');
 const Monster = require('./Monster');
 const Fight = require('./Fight');
+const HP = require('./HP');
 
 function GameView(game, player, viewport, viewCtx, playCtx) {
     this.game = game;
@@ -197,6 +198,7 @@ GameView.prototype.loop = function loop() {
             this.openChest(chest);
         } else {
             this.spriteUpdate();
+            this.hBar.update();
 
             this.chests.forEach(chest => {
                 chest.update();
@@ -291,6 +293,9 @@ GameView.prototype.createWorld = function createWorld(_numTileWidth, _numTileHei
     this.addSprite('player');
     this.generateChests();
     this.generateMonsters();
+
+    let hCanvas = document.getElementById("health");
+    this.hBar = new HP(hCanvas, this.sprites['player']);
     
     this.music = new Sound("../assets/music/fantascape.mp3");
     this.music.play();
