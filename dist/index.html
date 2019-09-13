@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>Slayer</title>
+    <style>
+        #player,
+        #viewport,
+        #fight,
+        #startScreen {
+            border: 2px solid black;
+            background-color: transparent;
+            position: absolute;
+        }
+    
+        #player {
+            z-index: 99;
+        }
+
+        #fight {
+            z-index: 100;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/start_menu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/drop_down.css">
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/footer.css">
+</head>
+
+<body>
+    <div id="screenChange">
+        <div id="startScreen">
+            <div>
+                <h1>Slayer</h1>
+            </div>
+            <div>
+                <p>press enter to start</p>
+            </div>
+            <div>
+                <div><h2>Instructions</h2>
+                    <div>Objective:
+                        <p>Defeat all the monsters without letting your HP hit zero!</p>
+                    </div>
+                    <div>Controls:
+                        <p>Use the arrow keys to move around the map.</p>
+                        <p>Walk over chests to open them.</p>
+                        <p>Press enter to attack!</p>
+                    </div>
+                    <div>Hints:
+                        <p>Healing items and better weapons can be found in chests.</p>
+                        <p>Defeat more monsters to level up for more damage!</p>
+                        <p>Use your inventory to heal and select your active weapon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <aside id='aside' class='aside hide'>
+        <div id='dropdown' class='dropdown'>
+            <div id='drop-btn' class='title pointerCursor'>Healing</div>
+    
+            <div id='menu' class='menu pointerCursor hide'>
+
+            </div>
+        </div>
+
+        <div id='weapon-dropdown' class='dropdown'>
+            <div id='weapon-drop-btn' class='title pointerCursor'>Weapons</div>
+        
+            <div id='weapons' class='menu pointerCursor hide'>
+                <div class='weapon'>Fists</div>
+            </div>
+        </div>
+
+        <button id='mute'>Mute</button>
+    </aside>
+
+    <footer>
+        <a href='https://github.com/savmus'>My GitHub</a>
+    </footer>
+
+    <script type='application/javascript' src='./main.js'></script>
+</body>
+</html>
