@@ -57,7 +57,7 @@ Fight.prototype.end = function end(winner) {
         requestAnimationFrame(this.loop);
     } else {
         let canvas = document.getElementById("screenChange");
-        canvas.innerHTML = "<div class='loser'><h1>You lose :(</h1></div><script type='application/javascript' src='./main.js'></script>";
+        canvas.innerHTML = "<div class='loser'><div class='loser-text'><h1>You have been defeated.<br>You lose.</h1><div class='credits'><h2>Credits</h2><p>Artwork by:</p><ul><li><a href='https://pipoya.itch.io/'>pipoya</a></li><li><a href='https://opengameart.org/users/athile'>athile</a></li><li><a href='https://opengameart.org/users/gaurav'>Gaurav</a></li><li><a href='https://opengameart.org/users/reemax'>Reemax</a></li></ul><p>Music by: <a href='www.soundimage.org'>Eric Matyas</a></p></div></div></div><script type='application/javascript' src='./main.js'></script>";
 
         let aside = document.getElementById("aside");
         aside.classList.add("hide");

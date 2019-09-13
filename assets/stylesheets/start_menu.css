@@ -9,3 +9,33 @@
   left: 265px;
   top: 240px;
 }
+
+#screenChange {
+  border: 1px solid black;
+  width: 600px;
+  height: 500px;
+}
+
+.winner, .loser {
+  background: rgba(0, 0, 0, 0.8);
+  width: 600px;
+  height: 500px;
+  margin: 0;
+  position: absolute;
+}
+
+.winner-text, .loser-text {
+  margin-left: 20px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.credits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.credits a {
+  color: rgb(100, 0, 0);
+  text-decoration: none;
+}
