@@ -14,13 +14,14 @@ html {
 
 #play {
   position: absolute;
-  left: 265px;
-  top: 240px;
+  left: 250px;
+  top: 230px;
   border: none;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   color: white;
   font-weight: 600;
+  font-size: 18px;
   padding-top: 5px;
   padding-bottom: 5px;
   outline: none;
@@ -38,6 +39,10 @@ html {
   position: absolute;
 }
 
+.winner-text h1, .loser-text h1 {
+  color: white;
+}
+
 .winner-text, .loser-text {
   margin-left: 20px;
   text-align: center;
@@ -47,6 +52,14 @@ html {
 .credits ul {
   list-style: none;
   padding: 0;
+}
+
+.credits h2 {
+  color: gray;
+}
+
+.credits p {
+  color: gray;
 }
 
 .credits a {
@@ -69,4 +82,11 @@ html {
 
 .objective, .controls, .hints {
   font-size: 14px;
+}
+
+.play-container {
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  background: black;
 }
