@@ -185,7 +185,7 @@ GameView.prototype.findsx = function findsx() {
     } else if (this.sprites.player.pos.x > this.world.width - 300) {
         return this.world.width - 600;
     } else {
-        return this.sprites.player.pos.x + (this.sprites.player.width / 2) - 300;
+        return this.sprites.player.pos.x + (this.sprites.player.width / 2) - 315;
     }
 }
 
@@ -193,9 +193,9 @@ GameView.prototype.findsy = function findsy() {
     if (this.sprites.player.pos.y < 250) {
         return 0;
     } else if (this.sprites.player.pos.y > this.world.height - 250) {
-        return this.world.height - 600;
+        return this.world.height - 500;
     } else {
-        return this.sprites.player.pos.y + (this.sprites.player.height / 2) - 250;
+        return this.sprites.player.pos.y + (this.sprites.player.height / 2) - 265;
     }
 }
 
@@ -231,8 +231,6 @@ GameView.prototype.loop = function loop() {
             this.sprites['player'].draw();
 
             this.viewCtx.clearRect(0, 0, this.viewport.width, this.viewport.height);
-            
-            debugger;
 
             this.viewCtx.drawImage(
                 this.world, 
@@ -269,8 +267,8 @@ GameView.prototype.generateChests = function generateChests() {
     const items = Object.values(Game.items);
 
     for (let i = 0; i < 50; i++) {
-        let x = Math.floor(Math.random() * (3841 - 1 + 1)) + 1;
-        let y = Math.floor(Math.random() * (3841 - 1 + 1)) + 1;
+        let x = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
+        let y = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
 
         let j = Math.floor(Math.random() * (28 - 0 + 0)) + 0;
 
@@ -284,8 +282,8 @@ GameView.prototype.generateMonsters = function generateMonsters() {
     const levels = Object.values(Game.levels);
 
     for (let i = 0; i < 100; i++) {
-        let x = Math.floor(Math.random() * (3841 - 1 + 1)) + 1;
-        let y = Math.floor(Math.random() * (3841 - 1 + 1)) + 1;
+        let x = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
+        let y = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
 
         let j = Math.floor(Math.random() * (8 - 0 + 0)) + 0;
         let speed = Math.floor(Math.random() * (1500 - 500 + 500)) + 500;
