@@ -179,6 +179,26 @@ GameView.prototype.clickHandler = function clickHandler(e) {
     }
 }
 
+GameView.prototype.findsx = function findsx() {
+    if (this.sprites.player.pos.x < 300) {
+        return 0;
+    } else if (this.sprites.player.pos.x > this.world.width - 300) {
+        return this.world.width - 600;
+    } else {
+        return this.sprites.player.pos.x + (this.sprites.player.width / 2) - 300;
+    }
+}
+
+GameView.prototype.findsy = function findsy() {
+    if (this.sprites.player.pos.y < 250) {
+        return 0;
+    } else if (this.sprites.player.pos.y > this.world.height - 250) {
+        return this.world.height - 600;
+    } else {
+        return this.sprites.player.pos.y + (this.sprites.player.height / 2) - 250;
+    }
+}
+
 GameView.prototype.loop = function loop() {
     const that = this;
 
@@ -211,20 +231,19 @@ GameView.prototype.loop = function loop() {
             this.sprites['player'].draw();
 
             this.viewCtx.clearRect(0, 0, this.viewport.width, this.viewport.height);
-            this.viewCtx.drawImage(this.world,
-                (
-                    this.sprites.player.pos.x < 300 ||
-                    this.sprites.player.pos.x > this.world.width - 300
-                ) ? 0 : (
-                        this.sprites['player'].pos.x +
-                        (this.sprites['player'].width / 2) - 300
-                    ), (
-                        this.sprites.player.pos.y < 250 ||
-                        this.sprites.player.pos.y > this.world.height - 250
-                    ) ? 0 : (
-                    this.sprites['player'].pos.y +
-                    (this.sprites['player'].height / 2) - 250
-                ), 640, 640, 0, 0, 640, 640
+            
+            debugger;
+
+            this.viewCtx.drawImage(
+                this.world, 
+                this.findsx(), 
+                this.findsy(), 
+                600, 
+                500, 
+                0, 
+                0, 
+                600, 
+                500
             );
 
             let optionsArr = Array.from(document.getElementsByClassName("option"));

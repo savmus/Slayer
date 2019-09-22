@@ -14,8 +14,8 @@ function Sprite(key, world, player, images, playCtx, handler) {
     };
 
     this.pos2 = {
-        'x': 39,
-        'y': 29
+        'x': this.player.width / 2,
+        'y': this.player.height / 2
     };
 
     this.speed = {

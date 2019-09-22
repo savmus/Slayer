@@ -19,7 +19,7 @@ Chest.prototype.update = function update() {
         this.image,
         this.x,
         this.y,
-        this.width, 
+        this.width,
         this.height
     );
 }

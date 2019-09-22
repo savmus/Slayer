@@ -1,64 +1,24 @@
 # Slayer
 
-## Summary
+Play: [Slayer](https://savmus.github.io/Slayer/dist/)
 
-[Slayer](https://slayer-game.herokuapp.com/) is a 2D single-player RPG game, where players can find, purchase, and store items, maintain certain stats such as level and health, save their progress, and meet NPCs to guide them on their quest to slay monsters in a 2D world.
+Slayer is a single-player 2d RPG game, built with HTML, Canvas, CSS, and JavaScript. The files are bundled with Webpack, and the game is hosted live on GitHub Pages.
 
-Please see the following sections for more details.
+#### Instructions
 
-## MVPs
+Defeat all the monsters without letting your HP hit zero! Use the arrow keys to move around the map, and walk over chests to open them. Press enter to attack!
 
-* Map & Controls
-    * Player can move through map
+## Implementation
 
-* Items
-    * Items can be found by players
-    * Items can be purchased by players (Bonus)
-    * Items can be given to players (Bonus)
+Canvases:
+Fight - Hidden until fight is activated. Z-index 100.
+Health - There the whole time. Z-index 99. Hidden by fight.
+Player - There the whole time. Fixed. Player is redrawn in different directions to give illusion of movement. Z-index 98. Hidden by fight.
+Viewport - There the whole time. Z-index 97. Hidden by everything else.
+World - Contains monsters and chests.
 
-* Inventory
-    * Players can store items
-    * Players can use items
+## Future features
 
-* Player stats
-    * Health
-    * Level
-    * Attack (Bonus)
-    * Magic (Bonus)
-    * Gold (Bonus)
-
-* Monsters
-    * Monsters have their own stats
-    * Player can fight monsters
-
-* Characters (Bonus)
-    * Player can interact with NPCs
-
-* Saving (Bonus)
-    * Players can save game and come back to it later
-
-## Technologies
-
-* HTML
-    * View structure
-
-* CSS
-    * View styling
-
-* JavaScript
-    * Game logic
-
-## Timeline
-
-* Phase 1 (Tuesday)
-    * Map & Controls
-    * Items
-
-* Phase 2 (Wednesday)
-    * Inventory
-    * Player stats
-    * Monsters
-
-* Phase 3 (Thursday)
-    * Characters (Bonus)
-    * Saving (Bonus)
+* NPCs
+* Currency and shopping
+* Game saving
