@@ -20,7 +20,9 @@ StartMenu.prototype.startHandler = function startHandler(ev) {
         canvas.innerHTML = "<canvas id='viewport' width='600px' height='500px'></canvas><canvas id='player' width='600px' height='500px'></canvas><canvas id='fight' class='hide' width='600px' height='500px'></canvas><canvas id='health' width='600px' height='500px'></canvas><script type='application/javascript' src='./main.js'></script>";
         
         let aside = document.getElementById("aside");
+        let mute = document.getElementById("mute");
         aside.classList.remove("hide");
+        mute.classList.remove("hide");
         
         const viewport = document.getElementById("viewport");
         const player = document.getElementById("player");

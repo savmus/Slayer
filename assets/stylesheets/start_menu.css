@@ -10,6 +10,7 @@ html {
   height: 500px;
   text-align: center;
   font-family: fantasy;
+  left: 24%;
 }
 
 #play {
@@ -37,6 +38,7 @@ html {
   height: 500px;
   margin: 0;
   position: absolute;
+  left: 24%;
 }
 
 .winner-text h1, .loser-text h1 {
@@ -89,4 +91,5 @@ html {
   height: 500px;
   position: absolute;
   background: black;
+  left: 24%;
 }

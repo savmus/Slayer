@@ -6,6 +6,7 @@
     position: relative;
 	left: 620px;
 	font-family: sans-serif;
+	left: 72%;
 }
 
 .dropdown {
@@ -64,6 +65,9 @@
   	padding-top: 5px;
 	padding-bottom: 5px;
 	outline: none;
+	position: absolute;
+	left: 18%;
+	min-width: 62px;
 }
 
 #mute:hover {
