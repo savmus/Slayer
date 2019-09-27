@@ -151,8 +151,6 @@ GameView.prototype.openChest = function openChest(chest) {
 }
 
 GameView.prototype.fightMonster = function fightMonster(monster) {
-    monster.engaged = true;
-
     let canvas = document.getElementById("fight");
     canvas.classList.remove("hide");
 
