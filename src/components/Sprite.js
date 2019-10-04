@@ -133,10 +133,10 @@ Sprite.prototype.isMonster = function isMonster(monsters) {
     var monster = false;
 
     for (let i = 0; monster || i < monsters.length; i++) {
-        var monsterleft = monsters[i].x;
-        var monsterright = monsters[i].x + (monsters[i].width);
-        var monstertop = monsters[i].y;
-        var monsterbottom = monsters[i].y + (monsters[i].height);
+        var monsterleft = monsters[i].pos.x;
+        var monsterright = monsters[i].pos.x + (monsters[i].width);
+        var monstertop = monsters[i].pos.y;
+        var monsterbottom = monsters[i].pos.y + (monsters[i].height);
 
         monster = true;
         if ((monsters[i].beat) ||
