@@ -19,8 +19,8 @@ function Sprite(key, world, player, images, playCtx, handler) {
     };
 
     this.speed = {
-        'x': 1,
-        'y': 1
+        'x': 1.25,
+        'y': 1.25
     };
 
     this.inventory = {
