@@ -11,10 +11,27 @@ function Monster(width, height, color, x, y, worldCtx, world, weapon, speed, lev
         'y': this.y
     };
 
-    this.speed = {
-        'x': 2,
-        'y': 2
+    this.pos2 = {
+        'x': this.width / 2,
+        'y': this.height / 2
     };
+
+    this.speed = {
+        'x': 1.5,
+        'y': 1.5
+    };
+
+    this.directions = [
+        "right",
+        "left",
+        "up",
+        "down"
+    ];
+
+    this.direction = "right";
+
+    this.updateDirection = this.updateDirection.bind(this);
+    this.interval = setInterval(this.updateDirection, 2000);
 
     this.engaged = false;
     this.beat = false;
@@ -27,20 +44,43 @@ function Monster(width, height, color, x, y, worldCtx, world, weapon, speed, lev
     this.image.src = color;
 
     this.image.onload = this.update();
+    this.clear = this.clear.bind(this);
+
+    this.interval = setInterval(this.clear, 15);
+}
+
+Monster.prototype.clear = function clear() {
+    this.ctx.clearRect(0, 0, this.world.width, this.world.height);
+}
+
+Monster.prototype.updateDirection = function updateDirection() {
+    this.direction = this.directions[Math.floor(Math.random() * (4 - 0 + 0)) + 0];
 }
 
 Monster.prototype.update = function update() {
-    const that = this;
+    this.ctx.drawImage(
+        this.image,
+        this.pos.x,
+        this.pos.y,
+        this.width,
+        this.height
+    );
+}
 
-    this.image.onload = function draw() {
-        that.ctx.drawImage(
-            that.image,
-            that.x,
-            that.y,
-            that.width,
-            that.height
-        );
-    }
+Monster.prototype.isPlayer = function isPlayer(player) {
+    var areaLeft = player.pos.x - 250;
+    var areaRight = player.pos.x + 250;
+    var areaTop = player.pos.y - 300;
+    var areaBottom = player.pos.y + 300;
+
+    if (this.pos.x > areaLeft && 
+        this.pos.x < areaRight &&
+        this.pos.y > areaTop &&
+        this.pos.y < areaBottom) {
+        return true
+    } else {
+        return false
+    };
 }
 
 module.exports = Monster;

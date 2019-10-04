@@ -22,7 +22,13 @@ function GameView(game, player, viewport, viewCtx, playCtx) {
         'height': 3840
     });
 
+    this.monsterWorld = this.createElement('canvas', {
+        'width': 3840,
+        'height': 3840
+    });
+
     this.worldCtx = this.world.getContext("2d");
+    this.monsterCtx = this.monsterWorld.getContext("2d");
 
     this.cursor = {
         'rightPressed': false,
@@ -141,6 +147,22 @@ GameView.prototype.spriteUpdate = function update() {
     }
 };
 
+GameView.prototype.monsterUpdate = function monsterupdate(monster, direction) {
+    if (direction === "right" && monster.pos.x < this.world.width - monster.width) {
+        monster.image.src = "../assets/monsters/undead_right.png";
+        monster.pos.x += monster.speed.x;
+    } else if (direction === "left" && monster.pos.x >= 0) {
+        monster.image.src = "../assets/monsters/undead_left.png";
+        monster.pos.x -= monster.speed.x;
+    } else if (direction === "down" && monster.pos.y < this.world.height - monster.height) {
+        monster.image.src = "../assets/monsters/undead_forward.png";
+        monster.pos.y += monster.speed.y;
+    } else {
+        monster.image.src = "../assets/monsters/undead_up.png";
+        monster.pos.y -= monster.speed.y;
+    }
+};
+
 GameView.prototype.openChest = function openChest(chest) {
     this.sprites['player'].addItem(chest.item);
 
@@ -211,12 +233,25 @@ GameView.prototype.loop = function loop() {
     } else {
         const monster = this.sprites['player'].isMonster(this.monsters);
         const chest = this.sprites['player'].isChest(this.chests);
+        let inRange = [];
+
+        this.monsters.forEach(monster => {
+            if (monster.isPlayer(this.sprites.player)) {
+                inRange.push(monster);
+            }
+        });
 
         if (monster) {
             this.fightMonster(monster);
         } else if (chest) {
             this.openChest(chest);
         } else {
+            if (inRange.length > 0) {
+                inRange.forEach(monster => {
+                    this.monsterUpdate(monster, monster.direction);
+                });
+            }
+
             this.spriteUpdate();
             this.hBar.update();
 
@@ -226,7 +261,7 @@ GameView.prototype.loop = function loop() {
 
             this.monsters.forEach(monster => {
                 monster.update();
-            })
+            });
 
             this.sprites['player'].draw();
 
@@ -241,6 +276,18 @@ GameView.prototype.loop = function loop() {
                 0, 
                 0, 
                 600, 
+                500
+            );
+
+            this.viewCtx.drawImage(
+                this.monsterWorld,
+                this.findsx(),
+                this.findsy(),
+                600,
+                500,
+                0,
+                0,
+                600,
                 500
             );
 
@@ -289,7 +336,7 @@ GameView.prototype.generateMonsters = function generateMonsters() {
         let speed = Math.floor(Math.random() * (1500 - 500 + 500)) + 500;
         let k = Math.floor(Math.random() * (9 - 0 + 0)) + 0;
 
-        let monster = new Monster(35, 40, "../assets/monsters/undead_forward.png", x, y, this.worldCtx, this.world, weapons[j], speed, levels[k]);
+        let monster = new Monster(35, 40, "../assets/monsters/undead_forward.png", x, y, this.monsterCtx, this.monsterWorld, weapons[j], speed, levels[k]);
         this.monsters.push(monster);
     }
 }
