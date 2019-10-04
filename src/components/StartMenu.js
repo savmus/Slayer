@@ -12,6 +12,9 @@ StartMenu.prototype.title = function title() {
 
     this.music = new Sound("../assets/music/our_mountain.mp3");
     this.music.play();
+
+    let mute = document.getElementById("mute");
+    mute.addEventListener('click', this.music.mute);
 }
 
 StartMenu.prototype.startHandler = function startHandler(ev) {
@@ -20,9 +23,7 @@ StartMenu.prototype.startHandler = function startHandler(ev) {
         canvas.innerHTML = "<canvas id='viewport' width='600px' height='500px'></canvas><canvas id='player' width='600px' height='500px'></canvas><canvas id='fight' class='hide' width='600px' height='500px'></canvas><canvas id='health' width='600px' height='500px'></canvas><script type='application/javascript' src='./main.js'></script>";
         
         let aside = document.getElementById("aside");
-        let mute = document.getElementById("mute");
         aside.classList.remove("hide");
-        mute.classList.remove("hide");
         
         const viewport = document.getElementById("viewport");
         const player = document.getElementById("player");
@@ -41,6 +42,9 @@ StartMenu.prototype.startHandler = function startHandler(ev) {
 
 StartMenu.prototype.start = function start() {
     window.removeEventListener("keyup", this.startHandler);
+
+    let mute = document.getElementById("mute");
+    mute.removeEventListener('click', this.music.mute);
 }
 
 StartMenu.prototype.playBtn = function playBtn() {
@@ -54,6 +58,9 @@ StartMenu.prototype.playHandler = function playHandler(e) {
 
     let btn = document.getElementById("play");
     btn.classList.add("hide");
+
+    let mute = document.getElementById("mute");
+    mute.classList.remove("hide");
 
     let start = document.getElementById("startScreen");
     start.classList.remove("hide");
