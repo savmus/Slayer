@@ -157,7 +157,7 @@ GameView.prototype.monsterUpdate = function monsterupdate(monster, direction) {
     } else if (direction === "down" && monster.pos.y < this.world.height - monster.height) {
         monster.image.src = "../assets/monsters/undead_forward.png";
         monster.pos.y += monster.speed.y;
-    } else {
+    } else if (direction === "up" && monster.pos.y >= 0) {
         monster.image.src = "../assets/monsters/undead_up.png";
         monster.pos.y -= monster.speed.y;
     }
