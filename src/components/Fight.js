@@ -48,7 +48,7 @@ Fight.prototype.end = function end(winner) {
         this.monster.image.src = "../assets/backgrounds/grass_tile.png";
         this.player.defeated += 1;
 
-        if (this.player.defeated === 10) {
+        if (this.player.defeated === 10 && this.player.level.level !== 10) {
             this.player.level = Game.levels[this.player.level.level + 1];
             this.player.defeated = 0;
         }

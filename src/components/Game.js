@@ -3,9 +3,7 @@ function Game() {
 }
 
 Game.prototype.isWon = function isWon(monsters) {
-    let beat = monsters.filter((el, idx, arr) => { el.beat });
-
-    if (beat.length === 100) {
+    if (monsters.length === 0) {
         return true;
     } else {
         return false;
