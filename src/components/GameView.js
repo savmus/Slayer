@@ -5,6 +5,7 @@ const Chest = require('./Chest');
 const Monster = require('./Monster');
 const Fight = require('./Fight');
 const HP = require('./HP');
+const Text = require('./Text');
 
 function GameView(game, player, viewport, viewCtx, playCtx) {
     this.game = game;
@@ -291,6 +292,9 @@ GameView.prototype.loop = function loop() {
                 500
             );
 
+            this.monsNum.text = `Monsters left: ${this.monsters.length}`;
+            this.monsNum.update();
+
             let optionsArr = Array.from(document.getElementsByClassName("option"));
             optionsArr.forEach((option, idx) => {
                 option.addEventListener('click', this.clickHandler);
@@ -357,6 +361,7 @@ GameView.prototype.createWorld = function createWorld(_numTileWidth, _numTileHei
 
     let hCanvas = document.getElementById("health");
     this.hBar = new HP(hCanvas, this.sprites['player']);
+    this.monsNum = new Text("14px", "Sans-serif", "black", 10, 20, this.playCtx, `Monsters left: ${this.monsters.length}`);
     
     this.music = new Sound("../assets/music/fantascape.mp3");
     this.music.play();
