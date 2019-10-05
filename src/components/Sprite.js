@@ -1,4 +1,5 @@
 const Game = require('./Game');
+const Message = require('./Message');
 
 function Sprite(key, world, player, images, playCtx, handler) {
     this.key = key;
@@ -45,6 +46,8 @@ function Sprite(key, world, player, images, playCtx, handler) {
         "Fists": true
     };
 
+    this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, "");
+
     this.weapon = "Fists";
     this.level = Game.levels[1];
     this.health = 100;
@@ -75,20 +78,32 @@ Sprite.prototype.draw = function draw() {
     }
 
     this.playCtx.drawImage(this.img, this.pos2.x, this.pos2.y);
+    this.message.update();
 };
 
 Sprite.prototype.addItem = function addItem(item) {
     if (item.health) {
         this.inventory.healing.push(item);
         let menu = document.getElementById("menu");
+
+        let found = item.adj + item.name.toLowerCase();
+
+        this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, `You found ${found}!`);
+
         menu.innerHTML += `<div class='option' id='${item.name}'>${item.name} +${item.health}</div>`;
     } else {
+        let found = item.adj + item.name.toLowerCase();
+
         if (!this.weapons[item.name]) {
             this.inventory.weapons.push(item);
             this.weapons[item.name] = true;
 
+            this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, `You found ${found}!`);
+
             let menu = document.getElementById("weapons");
             menu.innerHTML += `<div class='weapon' id='${item.name}'>${item.name} atk${item.damage}</div>`;
+        } else {
+            this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, `You already have ${found}...`);
         }
     }
 }

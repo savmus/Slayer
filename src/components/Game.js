@@ -15,119 +15,148 @@ Game.prototype.isWon = function isWon(monsters) {
 Game.items = {
     "Healing potion": {
         name: "Healing potion",
-        health: 99
+        health: 99,
+        adj: "a "
     },
     "Wine": {
         name: "Wine",
-        health: 94
+        health: 94,
+        adj: ""
     },
     "Mead": {
         name: "Mead",
-        health: 89
+        health: 89,
+        adj: ""
     },
     "Rum": {
         name: "Rum",
-        health: 84
+        health: 84,
+        adj: ""
     },
     "Ale": {
         name: "Ale",
-        health: 79
+        health: 79,
+        adj: ""
     },
     "Bandage": {
         name: "Bandage",
-        health: 74
+        health: 74,
+        adj: "a "
     },
     "Tourniquet": {
         name: "Tourniquet",
-        health: 69
+        health: 69,
+        adj: "a "
     },
     "Fresh water": {
         name: "Fresh water",
-        health: 64
+        health: 64,
+        adj: ""
     },
     "Warm milk": {
         name: "Warm milk",
-        health: 59
+        health: 59,
+        adj: ""
     },
     "Bread": {
         name: "Bread",
-        health: 54
+        health: 54,
+        adj: ""
     },
     "Cheese": {
         name: "Cheese",
-        health: 49
+        health: 49,
+        adj: ""
     },
     "Apple": {
         name: "Apple",
-        health: 44
+        health: 44,
+        adj: "an "
     },
     "Berries": {
         name: "Berries",
-        health: 39
+        health: 39,
+        adj: ""
     },
     "Moldy bread": {
         name: "Moldy bread",
-        health: 34
+        health: 34,
+        adj: ""
     },
     "Moldy cheese": {
         name: "Moldy cheese",
-        health: 29
+        health: 29,
+        adj: ""
     },
     "Grass": {
         name: "Grass",
-        health: 24
+        health: 24,
+        adj: ""
     },
     "Dirty water": {
         name: "Dirty water",
-        health: 19
+        health: 19,
+        adj: ""
     },
     "Bread crumbs": {
         name: "Bread crumbs",
-        health: 14
+        health: 14,
+        adj: ""
     },
     "Dead grass": {
         name: "Dead grass",
-        health: 9
+        health: 9,
+        adj: ""
     },
     "Crumb": {
         name: "Crumb",
-        health: 4
+        health: 4,
+        adj: "a "
     },
     "Spear": {
         name: "Spear",
-        damage: 10
+        damage: 10,
+        adj: "a "
     },
     "Sword": {
         name: "Sword",
-        damage: 8
+        damage: 8,
+        adj: "a "
     },
     "Bow": {
         name: "Bow",
-        damage: 7
+        damage: 7,
+        adj: "a "
     },
     "Lightening spell": {
         name: "Lightening spell",
-        damage: 6
+        damage: 6,
+        adj: "a "
     },
     "Fire spell": {
         name: "Fire spell",
-        damage: 5
+        damage: 5,
+        adj: "a "
     },
     "Dagger": {
         name: "Dagger",
-        damage: 4
+        damage: 4,
+        adj: "a "
     },
     "Large stick": {
         name: "Large stick",
-        damage: 3
+        damage: 3,
+        adj: "a "
     },
     "Small stick": {
         name: "Small stick",
-        damage: 2
+        damage: 2,
+        adj: "a "
     },
     "Fists": {
         name: "Fists",
-        damage: 1
+        damage: 1,
+        adj: ""
     }
 }
 
