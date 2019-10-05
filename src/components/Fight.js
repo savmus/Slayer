@@ -3,13 +3,14 @@ const Health = require("./Health");
 const Text = require('./Text');
 const Game = require('./Game');
 
-function Fight(canvas, monster, player, loop) {
+function Fight(canvas, monster, player, loop, view) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
 
     this.monster = monster;
     this.player = player;
     this.loop = loop;
+    this.view = view;
 
     this.updateFight = this.updateFight.bind(this);
     this.startHandler = this.startHandler.bind(this);
@@ -51,6 +52,9 @@ Fight.prototype.end = function end(winner) {
             this.player.level = Game.levels[this.player.level.level + 1];
             this.player.defeated = 0;
         }
+
+        let monsterIdx = this.view.monsters.indexOf(this.monster);
+        this.view.monsters.splice(monsterIdx, 1);
 
         clearInterval(this.interval);
         this.canvas.classList.add("hide");

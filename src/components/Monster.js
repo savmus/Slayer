@@ -17,8 +17,8 @@ function Monster(width, height, color, x, y, worldCtx, world, weapon, speed, lev
     };
 
     this.speed = {
-        'x': 1.5,
-        'y': 1.5
+        'x': 1.25,
+        'y': 1.25
     };
 
     this.directions = [

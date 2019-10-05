@@ -176,7 +176,7 @@ GameView.prototype.fightMonster = function fightMonster(monster) {
     let canvas = document.getElementById("fight");
     canvas.classList.remove("hide");
 
-    let fight = new Fight(canvas, monster, this.sprites['player'], this.loop);
+    let fight = new Fight(canvas, monster, this.sprites['player'], this.loop, this);
     
     fight.start();
 }
