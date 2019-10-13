@@ -8,10 +8,10 @@ function HP(canvas, player) {
 
     this.player = player;
     this.health = new Health(140, 15, 440, 20, this.ctx, this.player);
-    this.hp = new Text("14px", "Sans-Serif", "black", 440, 15, this.ctx, "100/100 HP");
-    this.weapon = new Text("14px", "Sans-Serif", "black", 440, 50, this.ctx, "Weapon: ");
-    this.level = new Text("14px", "Sans-Serif", "black", 440, 65, this.ctx, "Level: ");
-    this.attack = new Text("14px", "Sans-Serif", "black", 440, 80, this.ctx, "Attack: ");
+    this.hp = new Text("14px", "Serif", "black", 440, 15, this.ctx, "100/100 HP");
+    this.weapon = new Text("14px", "Serif", "black", 440, 50, this.ctx, "Weapon: ");
+    this.level = new Text("14px", "Serif", "black", 440, 65, this.ctx, "Level: ");
+    this.attack = new Text("14px", "Serif", "black", 440, 80, this.ctx, "Attack: ");
 
     this.update = this.update.bind(this);
 

@@ -46,7 +46,7 @@ function Sprite(key, world, player, images, playCtx, handler) {
         "Fists": true
     };
 
-    this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, "");
+    this.message = new Message("18px", "Serif", "black", 250, 300, this.playCtx, "");
 
     this.weapon = "Fists";
     this.level = Game.levels[1];
@@ -88,7 +88,7 @@ Sprite.prototype.addItem = function addItem(item) {
 
         let found = item.adj + item.name.toLowerCase();
 
-        this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, `You found ${found}!`);
+        this.message = new Message("18px", "Serif", "black", 250, 300, this.playCtx, `You found ${found}!`);
 
         menu.innerHTML += `<div class='option' id='${item.name}'>${item.name} +${item.health}</div>`;
     } else {
@@ -98,12 +98,12 @@ Sprite.prototype.addItem = function addItem(item) {
             this.inventory.weapons.push(item);
             this.weapons[item.name] = true;
 
-            this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, `You found ${found}!`);
+            this.message = new Message("18px", "Serif", "black", 250, 300, this.playCtx, `You found ${found}!`);
 
             let menu = document.getElementById("weapons");
             menu.innerHTML += `<div class='weapon' id='${item.name}'>${item.name} atk${item.damage}</div>`;
         } else {
-            this.message = new Message("18px", "Sans-serif", "black", 250, 300, this.playCtx, `You already have ${found}...`);
+            this.message = new Message("18px", "Serif", "black", 250, 300, this.playCtx, `You already have ${found}...`);
         }
     }
 }

@@ -76,14 +76,14 @@ Fight.prototype.start = function start() {
     this.pFighter = new Fighter(76, 100, "../assets/characters/main_up.png", 262, 350, this.ctx);
     this.mHealth = new Health(140, 15, 425, 20, this.ctx, this.monster);
     this.pHealth = new Health(140, 15, 35, 350, this.ctx, this.player);
-    this.mHealthText = new Text("18px", "Sans-Serif", "black", 425, 50, this.ctx, "Undead HP: ");
-    this.pHealthText = new Text("18px", "Sans-Serif", "black", 35, 380, this.ctx, "Your HP: ");
-    this.weaponType = new Text("20px", "Sans-Serif", "black", 35, 430, this.ctx, "Active weapon: ");
-    this.weaponAttack = new Text("20px", "Sans-Serif", "black", 35, 455, this.ctx, "Attack: ");
-    this.monsterAttack = new Text("20px", "Sans-Serif", "black", 425, 105, this.ctx, "Undead attack: ");
-    this.monsterName = new Text("38px", "Sans-Serif", "black", 35, 45, this.ctx, "Undead");
-    this.pLevel = new Text("18px", "Sans-Serif", "black", 425, 430, this.ctx, "Level ");
-    this.mLevel = new Text("18px", "Sans-Serif", "black", 35, 100, this.ctx, "Level ");
+    this.mHealthText = new Text("18px", "Serif", "black", 425, 50, this.ctx, "Undead HP: ");
+    this.pHealthText = new Text("18px", "Serif", "black", 35, 380, this.ctx, "Your HP: ");
+    this.weaponType = new Text("20px", "Serif", "black", 35, 430, this.ctx, "Active weapon: ");
+    this.weaponAttack = new Text("20px", "Serif", "black", 35, 455, this.ctx, "Attack: ");
+    this.monsterAttack = new Text("20px", "Serif", "black", 425, 105, this.ctx, "Undead attack: ");
+    this.monsterName = new Text("38px", "Serif", "black", 35, 45, this.ctx, "Undead");
+    this.pLevel = new Text("18px", "Serif", "black", 425, 430, this.ctx, "Level ");
+    this.mLevel = new Text("18px", "Serif", "black", 35, 100, this.ctx, "Level ");
 
     window.addEventListener("keyup", this.startHandler);
 }

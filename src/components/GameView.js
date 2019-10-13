@@ -361,7 +361,7 @@ GameView.prototype.createWorld = function createWorld(_numTileWidth, _numTileHei
 
     let hCanvas = document.getElementById("health");
     this.hBar = new HP(hCanvas, this.sprites['player']);
-    this.monsNum = new Text("14px", "Sans-serif", "black", 10, 20, this.playCtx, `Monsters left: ${this.monsters.length}`);
+    this.monsNum = new Text("14px", "Serif", "black", 10, 20, this.playCtx, `Monsters left: ${this.monsters.length}`);
     
     this.music = new Sound("../assets/music/fantascape.mp3");
     this.music.play();

@@ -9,7 +9,7 @@ html {
   width: 600px;
   height: 500px;
   text-align: center;
-  font-family: fantasy;
+  font-family: serif;
   left: 24%;
 }
 
@@ -48,7 +48,7 @@ html {
 .winner-text, .loser-text {
   margin-left: 20px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: serif;
 }
 
 .credits ul {
