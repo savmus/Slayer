@@ -24,6 +24,7 @@ StartMenu.prototype.startHandler = function startHandler(ev) {
         
         let aside = document.getElementById("aside");
         aside.classList.remove("hide");
+        aside.classList.add("reveal-aside");
         
         const viewport = document.getElementById("viewport");
         const player = document.getElementById("player");

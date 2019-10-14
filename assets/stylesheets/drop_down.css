@@ -2,15 +2,19 @@
     display: none;
 }
 
+.reveal-aside {
+	display: inline;
+}
+
 .aside {
     position: relative;
-	left: 620px;
 	font-family: serif;
-	left: 72%;
+	left: 74%;
+	width: 22%;
 }
 
 .dropdown {
-	width: 10em;
+	width: 8em;
 	margin-bottom: 1em;
 	margin: .3em .3em .3em .3em;
 }
@@ -66,7 +70,7 @@
 	padding-bottom: 5px;
 	outline: none;
 	position: absolute;
-	left: 18%;
+	left: 20%;
 	min-width: 62px;
 }
 

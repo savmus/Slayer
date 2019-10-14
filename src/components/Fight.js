@@ -66,6 +66,7 @@ Fight.prototype.end = function end(winner) {
         let aside = document.getElementById("aside");
         let mute = document.getElementById("mute");
         aside.classList.add("hide");
+        aside.classList.remove("reveal-aside");
         mute.classList.add("hide");
     }
 }

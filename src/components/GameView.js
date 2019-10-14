@@ -230,6 +230,7 @@ GameView.prototype.loop = function loop() {
         let aside = document.getElementById("aside");
         let mute = document.getElementById("mute");
         aside.classList.add("hide");
+        aside.classList.remove("reveal-aside");
         mute.classList.add("hide");
     } else {
         const monster = this.sprites['player'].isMonster(this.monsters);

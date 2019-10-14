@@ -1,9 +1,18 @@
 footer {
-    position: relative;
-    top: 520px;
+    position: absolute;
+    width: 99%;
+    top: 540px;
+    text-align: center;
 }
 
 footer a {
+    font-size: 20px;
     font-family: serif;
     color: white;
+    padding-right: 1%;
+}
+
+footer a:last-child {
+    display: block;
+    padding-top: 1%;
 }
