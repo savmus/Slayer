@@ -9,7 +9,7 @@
 .aside {
     position: relative;
 	font-family: serif;
-	left: 74%;
+	left: 75%;
 	width: 22%;
 }
 
@@ -70,10 +70,29 @@
 	padding-bottom: 5px;
 	outline: none;
 	position: absolute;
-	left: 20%;
+	left: 21%;
+	min-width: 62px;
+}
+
+#restart {
+	border: none;
+  	border-radius: 3px;
+  	background: rgba(0, 0, 0, 0.8);
+  	color: white;
+  	font-weight: 600;
+  	padding-top: 5px;
+	padding-bottom: 5px;
+	outline: none;
+	position: absolute;
+	left: 21%;
+	top: 29%;
 	min-width: 62px;
 }
 
 #mute:hover {
+	cursor: pointer;
+}
+
+#restart:hover {
 	cursor: pointer;
 }

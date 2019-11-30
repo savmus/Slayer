@@ -2,6 +2,26 @@ html {
   background: maroon;
 }
 
+.intro {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 50%;
+  margin: auto;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1%;
+}
+
+.intro h1 {
+  
+}
+
+.intro p {
+  margin: auto;
+}
+
 #startScreen {
   border: 2px solid black;
   position: absolute;
@@ -10,7 +30,7 @@ html {
   height: 500px;
   text-align: center;
   font-family: serif;
-  left: 26%;
+  left: 27%;
 }
 
 #play {
@@ -38,7 +58,7 @@ html {
   height: 500px;
   margin: 0;
   position: absolute;
-  left: 26%;
+  left: 27%;
 }
 
 .winner-text h1, .loser-text h1 {
@@ -91,5 +111,5 @@ html {
   height: 500px;
   position: absolute;
   background: black;
-  left: 26%;
+  left: 27%;
 }

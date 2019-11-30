@@ -1,18 +1,22 @@
 footer {
     position: absolute;
-    width: 99%;
-    top: 540px;
-    text-align: center;
+    top: 1%;
+    right: 5px;
+    /* max-width: 6%; */
 }
 
 footer a {
     font-size: 20px;
-    font-family: serif;
     color: white;
-    padding-right: 1%;
+    padding-right: 30%;
+}
+
+.angel {
+    padding-right: 0;
 }
 
 footer a:last-child {
     display: block;
-    padding-top: 1%;
+    padding-top: 3%;
+    padding-right: 0;
 }

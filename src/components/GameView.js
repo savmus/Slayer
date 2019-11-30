@@ -228,10 +228,8 @@ GameView.prototype.loop = function loop() {
         canvas.innerHTML = "<div class='winner'><div class='winner-text'><h1>You defeated all the monsters!<br>You win!</h1><div class='credits'><h2>Credits</h2><p>Artwork by:</p><ul><li><a href='https://pipoya.itch.io/'>pipoya</a></li><li><a href='https://opengameart.org/users/athile'>athile</a></li><li><a href='https://opengameart.org/users/gaurav'>Gaurav</a></li><li><a href='https://opengameart.org/users/reemax'>Reemax</a></li></ul><p>Music by: <a href='www.soundimage.org'>Eric Matyas</a></p></div></div></div><script type='application/javascript' src='./main.js'></script>";
 
         let aside = document.getElementById("aside");
-        let mute = document.getElementById("mute");
         aside.classList.add("hide");
         aside.classList.remove("reveal-aside");
-        mute.classList.add("hide");
     } else {
         const monster = this.sprites['player'].isMonster(this.monsters);
         const chest = this.sprites['player'].isChest(this.chests);

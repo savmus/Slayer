@@ -21,6 +21,10 @@ StartMenu.prototype.startHandler = function startHandler(ev) {
     if (ev.keyCode === 13) {
         let canvas = document.getElementById("screenChange");
         canvas.innerHTML = "<canvas id='viewport' width='600px' height='500px'></canvas><canvas id='player' width='600px' height='500px'></canvas><canvas id='fight' class='hide' width='600px' height='500px'></canvas><canvas id='health' width='600px' height='500px'></canvas><script type='application/javascript' src='./main.js'></script>";
+
+        let restart = document.getElementById("restart");
+        restart.classList.remove("hide");
+        restart.addEventListener('click', this.restart);
         
         let aside = document.getElementById("aside");
         aside.classList.remove("hide");
@@ -73,6 +77,10 @@ StartMenu.prototype.play = function play() {
     window.removeEventListener("click", this.playHandler);
 
     this.title();
+}
+
+StartMenu.prototype.restart = function restart() {
+    location.reload();
 }
 
 module.exports = StartMenu;
