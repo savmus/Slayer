@@ -1,8 +1,7 @@
 footer {
     position: absolute;
-    top: 1%;
+    bottom: 1%;
     right: 5px;
-    /* max-width: 6%; */
 }
 
 footer a {
