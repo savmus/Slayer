@@ -1,21 +1,228 @@
-footer {
-    position: absolute;
-    bottom: 1%;
-    right: 5px;
+#footer {
+	padding: 0em 0 1em 0;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
 }
 
-footer a {
-    font-size: 20px;
-    color: white;
-    padding-right: 30%;
-}
-
-.angel {
-    padding-right: 0;
-}
-
-footer a:last-child {
+section {
     display: block;
-    padding-top: 3%;
-    padding-right: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
+ul {
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-align: -webkit-match-parent;
+}
+
+a {
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border-bottom: dotted 1px #666;
+    color: inherit;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#footer .icons {
+    margin: 0;
+}
+
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.icons li {
+    display: inline-block;
+    padding: 0 1.25em 0 0;
+}
+
+ul.icons li:last-child {
+    padding: 0;
+}
+
+#footer a {
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+#footer .copyright {
+    font-size: 0.8em;
+    list-style: none;
+    margin: 2em 0 0 0;
+    padding: 0;
+}
+
+#footer .copyright li:first-child {
+    border-left: 0;
+    margin-left: 0;
+    padding: 0;
+}
+
+#footer .copyright li {
+    display: inline-block;
+    line-height: 1em;
+}
+
+
+
+/* #footer a {
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+#footer a:hover {
+	color: #ffffff;
+}
+
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b {
+	color: #ffffff;
+}
+
+#footer header p {
+	color: #ffffff;
+}
+
+#footer header.major:after {
+	background: #ffffff;
+}
+
+#footer input[type="submit"],
+#footer input[type="reset"],
+#footer input[type="button"],
+#footer button,
+#footer .button {
+	box-shadow: inset 0 0 0 1px #ffffff;
+	color: #ffffff !important;
+}
+
+#footer input[type="submit"]:hover,
+#footer input[type="reset"]:hover,
+#footer input[type="button"]:hover,
+#footer button:hover,
+#footer .button:hover {
+	background-color: rgba(255, 255, 255, 0.125);
+}
+
+#footer input[type="submit"]:active,
+#footer input[type="reset"]:active,
+#footer input[type="button"]:active,
+#footer button:active,
+#footer .button:active {
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+#footer input[type="submit"].primary,
+#footer input[type="reset"].primary,
+#footer input[type="button"].primary,
+#footer button.primary,
+#footer .button.primary {
+	background-color: #ffffff;
+	box-shadow: inset 0 0 0 1px #ffffff !important;
+	color: #4686a0 !important;
+}
+
+#footer input[type="submit"].primary:hover,
+#footer input[type="reset"].primary:hover,
+#footer input[type="button"].primary:hover,
+#footer button.primary:hover,
+#footer .button.primary:hover {
+	background-color: rgba(255, 255, 255, 0.125) !important;
+	color: #ffffff !important;
+}
+
+#footer input[type="submit"].primary:active,
+#footer input[type="reset"].primary:active,
+#footer input[type="button"].primary:active,
+#footer button.primary:active,
+#footer .button.primary:active {
+	background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+#footer ul.major-icons li .icon {
+	border-color: #ffffff;
+}
+
+#footer .icon.major {
+	color: #ffffff;
+}
+
+#footer .icons {
+	margin: 0;
+}
+
+#footer .copyright {
+	font-size: 0.8em;
+	list-style: none;
+	margin: 2em 0 0 0;
+	padding: 0;
+}
+
+#footer .copyright li {
+	border-left: solid 1px;
+	display: inline-block;
+	line-height: 1em;
+	margin-left: 1em;
+	padding: 0 0 0 1em;
+}
+
+#footer .copyright li:first-child {
+	border-left: 0;
+	margin-left: 0;
+	padding: 0;
+}
+                
+ul.icons {
+	cursor: default;
+	list-style: none;
+	padding-left: 0;
+}
+
+ul.icons li {
+	display: inline-block;
+	padding: 0 1.25em 0 0;
+}
+
+ul.icons li:last-child {
+	padding-right: 0;
+}
+
+ul.icons li .icon:before {
+	font-size: 1.5em;
+} */

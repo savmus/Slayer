@@ -10,6 +10,7 @@
             background-color: transparent;
             position: absolute;
             left: 27%;
+            margin: auto;
         }
 
         #viewport {
@@ -43,7 +44,37 @@
 <body>
     <div class="intro">
         <h1>Slayer</h1>
-        <p>Slayer is a single-player 2D browser Role-Playing Game (RPG). To win, you must defeat all 100 monsters on the map. As you defeat more monsters, your level and strength increase. Open the various chests around the map to discover healing items and more powerful weapons. Click 'Play Slayer' below to read the instructions.</p>
+    </div>
+
+    <button id="help"><i class="fa fa-question-circle-o"></i></button>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <p>Slayer is a single-player 2D browser Role-Playing Game (RPG). To win, you must defeat all 100 monsters on the map. As
+                    you defeat more monsters, your level and strength increase. Open the various chests around the map to discover
+                    healing items and more powerful weapons.</p>
+            </div>
+
+            <div>
+                <h2>Instructions</h2>
+                <div class='objective'><b>How to win:</b>
+                    <p>To win the game, you must defeat all 100 monsters on the map without letting your HP reach zero. If you die, you lose the game and have to start over.</p>
+                </div>
+                <div class='controls'><b>Controls:</b>
+                    <p>Use the four arrow keys to move around the map. You can move up, down, right, left, and diagonal.</p>
+                    <p>Select items from the inventory shown on the right by clicking on them. Stats are shown to the right of each item in your inventory.</p>
+                    <p>To open chests, simply walk over them. Similarly, walk into a monster to initiate a fight.</p>
+                    <p>During fights, quickly press 'enter' to attack! You can see your HP in the lower left of the screen and your enemy's in the top right. Don't let yours hit zero!</p>
+                </div>
+                <div class='hints'><b>Hints:</b>
+                    <p>Healing items and more powerful weapons can be found in the various chests around the map.</p>
+                    <p>Keep defeating monsters to level up for more damage!</p>
+                    <p>Use your inventory in order to heal yourself and to select your active weapon.</p>
+                    <p>View your current stats at the top right of the map.</p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <button id='mute' class='hide'>Mute</button>
@@ -63,17 +94,18 @@
             <div class='instructions'>
                 <div>
                     <h2>Instructions</h2>
-                    <div class='objective'>Objective:
-                        <p>Defeat all the monsters without letting your HP hit zero!</p>
+                    <div class='objective'>How to win:
+                        <p>Defeat all 100 monsters to save the world! If your HP hits 0, you lose.</p>
                     </div>
                     <div class='controls'>Controls:
                         <p>Use the arrow keys to move around the map.</p>
-                        <p>Walk over chests to open them.</p>
-                        <p>Press enter to attack!</p>
+                        <p>Select items from your inventory by clicking on them.</p>
+                        <p>Walk over chests to open them. Walk into monsters to initiate fights.</p>
+                        <p>During fights, quickly press 'enter' to attack!</p>
                     </div>
                     <div class='hints'>Hints:
-                        <p>Healing items and better weapons can be found in chests.</p>
-                        <p>Defeat more monsters to level up for more damage!</p>
+                        <p>Healing items and more powerful weapons can be found in chests.</p>
+                        <p>Keep defeating monsters to level up for more damage!</p>
                         <p>Use your inventory to heal and select your active weapon.</p>
                     </div>
                 </div>
@@ -99,14 +131,16 @@
         </div>
     </aside>
 
-    <footer>
-        <div>
-            <a href='https://github.com/savmus'><i class="fab fa-github"></i></a>
-            <a href='https://www.linkedin.com/in/savannah-musladin-525948193/'><i class="fab fa-linkedin-in"></i></a>
-            <a href='https://angel.co/savmus' class='angel'><i class="fab fa-angellist"></i></a>
-            <a href='https://savmus.github.io/portfolio/'>Savannah Musladin</a>
-        </div>
-    </footer>
+    <section id="footer">
+        <ul class="icons">
+            <li><a href="https://github.com/savmus"><i class="fab fa-github"></i></a></li>
+            <li><a href="www.linkedin.com/in/savannah-musladin-525948193"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://angel.co/savmus"><i class="fab fa-angellist"></i></a></li>
+        </ul>
+        <ul class="copyright">
+            <li><a href='https://savmus.github.io/portfolio/'>&copy; Savannah Musladin</a></li>
+        </ul>
+    </section>
 
     <script src="./main.js"></script>
 </body>

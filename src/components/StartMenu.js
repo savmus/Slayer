@@ -54,6 +54,23 @@ StartMenu.prototype.start = function start() {
 
 StartMenu.prototype.playBtn = function playBtn() {
     let btn = document.getElementById("play");
+    let modal = document.getElementById("modal");
+    let help = document.getElementById("help");
+    let span = document.getElementsByClassName("close")[0];
+
+    help.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
     btn.addEventListener("click", this.playHandler);
 }

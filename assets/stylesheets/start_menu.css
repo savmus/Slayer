@@ -4,22 +4,64 @@ html {
 
 .intro {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: rgba(0, 0, 0, 0.8);
+  margin: auto;
+  padding: 0;
+  margin: 0;
+}
+
+#help {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  font-size: 36px;
+  color: rgba(0, 0, 0, 0.8);
+  outline: none;
+  left: 1%;
+  top: 2%;
+  padding: 0;
+}
+
+#help:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  border-radius: 3px;
+  padding: 20px;
+  border: 1px solid #888;
   width: 50%;
-  margin: auto;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 1%;
+  text-align: center;
 }
 
-.intro h1 {
-  
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-.intro p {
-  margin: auto;
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #startScreen {
@@ -31,6 +73,7 @@ html {
   text-align: center;
   font-family: serif;
   left: 27%;
+  margin: auto;
 }
 
 #play {
@@ -59,6 +102,7 @@ html {
   margin: 0;
   position: absolute;
   left: 27%;
+  margin: auto;
 }
 
 .winner-text h1, .loser-text h1 {
@@ -93,6 +137,10 @@ html {
   font-size: 22px;
 }
 
+.title h1 {
+  margin-bottom: 0;
+}
+
 .start-game {
   font-weight: 600;
   color: maroon;
@@ -112,4 +160,5 @@ html {
   position: absolute;
   background: black;
   left: 27%;
+  margin: auto;
 }
