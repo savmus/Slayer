@@ -5,6 +5,8 @@ function Monster(width, height, color, x, y, worldCtx, world, weapon, speed, lev
     this.y = y;
     this.ctx = worldCtx;
     this.world = world;
+    this.canvasWidth = screen.width * 0.44;
+    this.canvasHeight = screen.height * 0.65;
 
     this.pos = {
         'x': this.x,
@@ -31,7 +33,7 @@ function Monster(width, height, color, x, y, worldCtx, world, weapon, speed, lev
     this.direction = "right";
 
     this.updateDirection = this.updateDirection.bind(this);
-    this.interval = setInterval(this.updateDirection, 2000);
+    this.interval = setInterval(this.updateDirection, 3000);
 
     this.engaged = false;
     this.beat = false;
@@ -54,7 +56,7 @@ Monster.prototype.clear = function clear() {
 }
 
 Monster.prototype.updateDirection = function updateDirection() {
-    this.direction = this.directions[Math.floor(Math.random() * (4 - 0 + 0)) + 0];
+    this.direction = this.directions[Math.floor(Math.random() * 4)];
 }
 
 Monster.prototype.update = function update() {
@@ -68,10 +70,10 @@ Monster.prototype.update = function update() {
 }
 
 Monster.prototype.isPlayer = function isPlayer(player) {
-    var areaLeft = player.pos.x - 250;
-    var areaRight = player.pos.x + 250;
-    var areaTop = player.pos.y - 300;
-    var areaBottom = player.pos.y + 300;
+    var areaLeft = player.pos.x - (this.canvasHeight / 2);
+    var areaRight = player.pos.x + (this.canvasHeight / 2);
+    var areaTop = player.pos.y - (this.canvasWidth / 2);
+    var areaBottom = player.pos.y + (this.canvasWidth / 2);
 
     if (this.pos.x > areaLeft && 
         this.pos.x < areaRight &&

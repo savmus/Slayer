@@ -10,12 +10,16 @@ html {
   margin: 0;
 }
 
+.intro h1 {
+  font-size: 3vw;
+}
+
 #help {
   cursor: pointer;
   background-color: transparent;
   border: none;
   position: absolute;
-  font-size: 36px;
+  font-size: 2.8vw;
   color: rgba(0, 0, 0, 0.8);
   outline: none;
   left: 1%;
@@ -43,17 +47,17 @@ html {
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto;
-  border-radius: 3px;
-  padding: 20px;
+  border-radius: 0.19vw;
+  padding: 1.5vw;
   border: 1px solid #888;
-  width: 50%;
+  width: 49.4vw;
   text-align: center;
 }
 
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 2.2vw;
   font-weight: bold;
 }
 
@@ -68,24 +72,24 @@ html {
   border: 2px solid black;
   position: absolute;
   background: white;
-  width: 600px;
-  height: 500px;
+  width: 44vw;
+  height: 65vh;
   text-align: center;
   font-family: serif;
-  left: 27%;
+  left: 28vw;
   margin: auto;
 }
 
 #play {
   position: absolute;
-  left: 250px;
-  top: 230px;
+  left: 17.9vw;
+  top: 28vh;
   border: none;
   border-radius: 3px;
   background: black;
   color: white;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.39vw;
   padding-top: 5px;
   padding-bottom: 5px;
   outline: none;
@@ -97,8 +101,8 @@ html {
 
 .winner, .loser {
   background: rgba(0, 0, 0, 0.8);
-  width: 600px;
-  height: 500px;
+  width: 44vw;
+  height: 65vh;
   margin: 0;
   position: absolute;
   left: 27%;
@@ -134,7 +138,7 @@ html {
 }
 
 .title {
-  font-size: 22px;
+  font-size: 1.7vw;
 }
 
 .title h1 {
@@ -144,21 +148,30 @@ html {
 .start-game {
   font-weight: 600;
   color: maroon;
+  font-size: 1.25vw;
 }
 
 .instructions h2 {
-  font-size: 16px;
+  font-size: 1.23vw;
 }
 
 .objective, .controls, .hints {
-  font-size: 14px;
+  font-size: 1.2vw;
 }
 
 .play-container {
-  width: 600px;
-  height: 500px;
+  width: 44vw;
+  height: 65vh;
   position: absolute;
   background: black;
-  left: 27%;
+  left: 28vw;
   margin: auto;
+}
+
+.game-description {
+  font-size: 1.23vw;
+}
+
+.game-instructions h2 {
+  font-size: 1.85vw;
 }

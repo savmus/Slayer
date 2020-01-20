@@ -9,21 +9,20 @@
 .aside {
     position: relative;
 	font-family: serif;
-	left: 75%;
-	width: 22%;
+	left: 74vw;
 }
 
 .dropdown {
-	width: 8em;
 	margin-bottom: 1em;
 	margin: .3em .3em .3em .3em;
 }
 
 .dropdown, .weapon-dropdown {
 	background: white;
-	padding: 3px;
-	border-radius: 1px;
+	padding: 0.2vw;
+	border-radius: 0.05vw;
 	display: inline-grid;
+	width: 9.8vw;
 }
 
 .dropdown .menu {
@@ -35,14 +34,14 @@
 	margin: .3em .3em .3em .3em;
 	margin-top: 0.3em;
 	border-top: 1px solid gray;
-	font-size: 14px;
+	font-size: 1.07vw;
 }
 
 .dropdown .menu .weapon {
 	margin: .3em .3em .3em .3em;
 	margin-top: 0.3em;
 	border-top: 1px solid gray;
-	font-size: 14px;
+	font-size: 1.07vw;
 }
 
 .dropdown .menu .option:hover {
@@ -57,36 +56,38 @@
 
 #drop-btn, #weapon-drop-btn {
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 1.07vw;
 }
 
 #mute {
 	border: none;
-  	border-radius: 3px;
+  	border-radius: 0.19vw;
   	background: rgba(0, 0, 0, 0.8);
   	color: white;
   	font-weight: 600;
-  	padding-top: 5px;
-	padding-bottom: 5px;
+  	padding-top: 0.7vh;
+	padding-bottom: 0.7vh;
 	outline: none;
 	position: absolute;
-	left: 21%;
-	min-width: 62px;
+	left: 21vw;
+	min-width: 4.8vw;
+	font-size: 1vw;
 }
 
 #restart {
 	border: none;
-  	border-radius: 3px;
+  	border-radius: 0.19vw;
   	background: rgba(0, 0, 0, 0.8);
   	color: white;
   	font-weight: 600;
-  	padding-top: 5px;
-	padding-bottom: 5px;
+  	padding-top: 0.7vh;
+	padding-bottom: 0.7vh;
 	outline: none;
 	position: absolute;
-	left: 21%;
-	top: 14.5%;
-	min-width: 62px;
+	left: 21vw;
+	top: 16vh;
+	min-width: 4.8vw;
+	font-size: 1vw;
 }
 
 #mute:hover {

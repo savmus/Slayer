@@ -5,13 +5,15 @@ const Game = require("./Game");
 function HP(canvas, player) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
+    this.canvasWidth = screen.width * 0.44;
+    this.canvasHeight = screen.height * 0.65;
 
     this.player = player;
-    this.health = new Health(140, 15, 440, 20, this.ctx, this.player);
-    this.hp = new Text("14px", "Serif", "black", 440, 15, this.ctx, "100/100 HP");
-    this.weapon = new Text("14px", "Serif", "black", 440, 50, this.ctx, "Weapon: ");
-    this.level = new Text("14px", "Serif", "black", 440, 65, this.ctx, "Level: ");
-    this.attack = new Text("14px", "Serif", "black", 440, 80, this.ctx, "Attack: ");
+    this.health = new Health(this.canvasWidth * 0.23, this.canvasHeight * 0.03, this.canvasWidth * 0.73, this.canvasHeight * 0.04, this.ctx, this.player);
+    this.hp = new Text("0.88vw", "Serif", "black", this.canvasWidth * 0.73, this.canvasHeight * 0.03, this.ctx, "100/100 HP");
+    this.weapon = new Text("0.88vw", "Serif", "black", this.canvasWidth * 0.73, this.canvasHeight * 0.1, this.ctx, "Weapon: ");
+    this.level = new Text("0.88vw", "Serif", "black", this.canvasWidth * 0.73, this.canvasHeight * 0.13, this.ctx, "Level: ");
+    this.attack = new Text("0.88vw", "Serif", "black", this.canvasWidth * 0.73, this.canvasHeight * 0.16, this.ctx, "Attack: ");
 
     this.update = this.update.bind(this);
 

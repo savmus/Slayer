@@ -14,9 +14,18 @@ function GameView(game, player, viewport, viewCtx, playCtx) {
     this.viewCtx = viewCtx;
     this.playCtx = playCtx;
 
-    this.grid = { 'width': 60, 'height': 60 };
-    this.tile = { 'width': 64, 'height': 64 };
-    this.view = { 'width': 640, 'height': 640 };
+    this.canvasWidth = screen.width * 0.44;
+    this.canvasHeight = screen.height * 0.65;
+
+    this.grid = { 
+        'width': this.canvasWidth * 0.1, 
+        'height': this.canvasHeight * 0.12 
+    };
+
+    this.tile = { 
+        'width': this.canvasWidth * 0.11, 
+        'height': this.canvasHeight * 0.13 
+    };
 
     this.world = this.createElement('canvas', {
         'width': 3840,
@@ -201,22 +210,22 @@ GameView.prototype.clickHandler = function clickHandler(e) {
 }
 
 GameView.prototype.findsx = function findsx() {
-    if (this.sprites.player.pos.x < 300) {
+    if (this.sprites.player.pos.x < this.canvasWidth / 2) {
         return 0;
-    } else if (this.sprites.player.pos.x > this.world.width - 300) {
-        return this.world.width - 600;
+    } else if (this.sprites.player.pos.x > this.world.width - (this.canvasWidth / 2)) {
+        return this.world.width - this.canvasWidth;
     } else {
-        return this.sprites.player.pos.x + (this.sprites.player.width / 2) - 315;
+        return this.sprites.player.pos.x - (this.canvasWidth / 2);
     }
 }
 
 GameView.prototype.findsy = function findsy() {
-    if (this.sprites.player.pos.y < 250) {
+    if (this.sprites.player.pos.y < this.canvasHeight / 2) {
         return 0;
-    } else if (this.sprites.player.pos.y > this.world.height - 250) {
-        return this.world.height - 500;
+    } else if (this.sprites.player.pos.y > this.world.height - (this.canvasHeight / 2)) {
+        return this.world.height - this.canvasHeight;
     } else {
-        return this.sprites.player.pos.y + (this.sprites.player.height / 2) - 265;
+        return this.sprites.player.pos.y - (this.canvasHeight / 2);
     }
 }
 
@@ -271,36 +280,36 @@ GameView.prototype.loop = function loop() {
                 this.world, 
                 this.findsx(), 
                 this.findsy(), 
-                600, 
-                500, 
+                this.canvasWidth, 
+                this.canvasHeight, 
                 0, 
                 0, 
-                600, 
-                500
+                this.canvasWidth, 
+                this.canvasHeight
             );
 
             this.viewCtx.drawImage(
                 this.monsterWorld,
                 this.findsx(),
                 this.findsy(),
-                600,
-                500,
+                this.canvasWidth,
+                this.canvasHeight,
                 0,
                 0,
-                600,
-                500
+                this.canvasWidth,
+                this.canvasHeight
             );
 
             this.monsNum.text = `Monsters left: ${this.monsters.length}`;
             this.monsNum.update();
 
             let optionsArr = Array.from(document.getElementsByClassName("option"));
-            optionsArr.forEach((option, idx) => {
+            optionsArr.forEach((option) => {
                 option.addEventListener('click', this.clickHandler);
             });
 
             let weaponsArr = Array.from(document.getElementsByClassName("weapon"));
-            weaponsArr.forEach((weapon, idx) => {
+            weaponsArr.forEach((weapon) => {
                 weapon.addEventListener('click', (e) => {
                     e.preventDefault();
 
@@ -317,12 +326,12 @@ GameView.prototype.generateChests = function generateChests() {
     const items = Object.values(Game.items);
 
     for (let i = 0; i < 50; i++) {
-        let x = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
-        let y = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
+        let x = Math.floor(Math.random() * 3807) + 1;
+        let y = Math.floor(Math.random() * 3807) + 1;
 
-        let j = Math.floor(Math.random() * (28 - 0 + 0)) + 0;
+        let j = Math.floor(Math.random() * 28);
 
-        let chest = new Chest(20, 20, "../assets/items/chest.png", x, y, this.worldCtx, items[j]);
+        let chest = new Chest(this.canvasWidth * 0.03, this.canvasHeight * 0.04, "../assets/items/chest.png", x, y, this.worldCtx, items[j]);
         this.chests.push(chest);
     }
 }
@@ -332,14 +341,14 @@ GameView.prototype.generateMonsters = function generateMonsters() {
     const levels = Object.values(Game.levels);
 
     for (let i = 0; i < 100; i++) {
-        let x = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
-        let y = Math.floor(Math.random() * (3807 - 1 + 1)) + 1;
+        let x = Math.floor(Math.random() * 3807) + 1;
+        let y = Math.floor(Math.random() * 3807) + 1;
 
-        let j = Math.floor(Math.random() * (8 - 0 + 0)) + 0;
-        let speed = Math.floor(Math.random() * (1500 - 500 + 500)) + 500;
-        let k = Math.floor(Math.random() * (9 - 0 + 0)) + 0;
+        let j = Math.floor(Math.random() * 8);
+        let speed = Math.floor(Math.random() * 1500) + 500;
+        let k = Math.floor(Math.random() * 9);
 
-        let monster = new Monster(35, 40, "../assets/monsters/undead_forward.png", x, y, this.monsterCtx, this.monsterWorld, weapons[j], speed, levels[k]);
+        let monster = new Monster(this.canvasWidth * 0.06, this.canvasHeight * 0.08, "../assets/monsters/undead_forward.png", x, y, this.monsterCtx, this.monsterWorld, weapons[j], speed, levels[k]);
         this.monsters.push(monster);
     }
 }
@@ -360,7 +369,7 @@ GameView.prototype.createWorld = function createWorld(_numTileWidth, _numTileHei
 
     let hCanvas = document.getElementById("health");
     this.hBar = new HP(hCanvas, this.sprites['player']);
-    this.monsNum = new Text("14px", "Serif", "black", 10, 20, this.playCtx, `Monsters left: ${this.monsters.length}`);
+    this.monsNum = new Text("0.88vw", "Serif", "black", this.canvasWidth * 0.02, this.canvasHeight * 0.04, this.playCtx, `Monsters left: ${this.monsters.length}`);
     
     this.music = new Sound("../assets/music/fantascape.mp3");
     this.music.play();

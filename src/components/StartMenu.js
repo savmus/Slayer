@@ -3,6 +3,9 @@ const GameView = require("./GameView");
 const Sound = require("./Sound");
 
 function StartMenu() {
+    this.canvasWidth = Math.floor(screen.width * 0.44);
+    this.canvasHeight = Math.floor(screen.height * 0.65);
+
     this.startHandler = this.startHandler.bind(this);
     this.playHandler = this.playHandler.bind(this);
 }
@@ -20,7 +23,7 @@ StartMenu.prototype.title = function title() {
 StartMenu.prototype.startHandler = function startHandler(ev) {
     if (ev.keyCode === 13) {
         let canvas = document.getElementById("screenChange");
-        canvas.innerHTML = "<canvas id='viewport' width='600px' height='500px'></canvas><canvas id='player' width='600px' height='500px'></canvas><canvas id='fight' class='hide' width='600px' height='500px'></canvas><canvas id='health' width='600px' height='500px'></canvas><script type='application/javascript' src='./main.js'></script>";
+        canvas.innerHTML = `<canvas id='viewport' width='${this.canvasWidth}px' height='${this.canvasHeight}px'></canvas><canvas id='player' width='${this.canvasWidth}px' height='${this.canvasHeight}px'></canvas><canvas id='fight' class='hide' width='${this.canvasWidth}px' height='${this.canvasHeight}px'></canvas><canvas id='health' width='${this.canvasWidth}px' height='${this.canvasHeight}px'></canvas><script type='application/javascript' src='./main.js'></script>`;
 
         let restart = document.getElementById("restart");
         restart.classList.remove("hide");

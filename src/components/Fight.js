@@ -16,7 +16,6 @@ function Fight(canvas, monster, player, loop, view) {
     this.startHandler = this.startHandler.bind(this);
     this.monsterAttack = this.monsterAttack.bind(this);
 
-    this.interval = setInterval(this.updateFight, 20);
     this.attack = setInterval(this.monsterAttack, this.monster.attackSpeed);
 }
 
@@ -69,22 +68,46 @@ Fight.prototype.end = function end(winner) {
     }
 }
 
+Fight.prototype.preRenderText = function preRenderText(width, height, color, text) {
+    const temp = document.createElement('canvas');
+    
+    temp.width = 120;
+    temp.height = 30;
+
+    const ctx = temp.getContext('2d');
+
+    ctx.font = width + " " + height;
+    ctx.fillStyle = color;
+    ctx.fillText(text, 10, 30);
+
+    return temp;
+}
+
 Fight.prototype.start = function start() {
-    this.background = new Fighter(600, 500, "../assets/backgrounds/grass.png", 0, 0, this.ctx);
-    this.mFighter = new Fighter(100, 150, "../assets/monsters/undead_forward.png", 250, 50, this.ctx);
-    this.pFighter = new Fighter(76, 100, "../assets/characters/main_up.png", 262, 350, this.ctx);
-    this.mHealth = new Health(140, 15, 425, 20, this.ctx, this.monster);
-    this.pHealth = new Health(140, 15, 35, 350, this.ctx, this.player);
-    this.mHealthText = new Text("18px", "Serif", "black", 425, 50, this.ctx, "Undead HP: ");
-    this.pHealthText = new Text("18px", "Serif", "black", 35, 380, this.ctx, "Your HP: ");
-    this.weaponType = new Text("20px", "Serif", "black", 35, 430, this.ctx, "Active weapon: ");
-    this.weaponAttack = new Text("20px", "Serif", "black", 35, 455, this.ctx, "Attack: ");
-    this.monsterAttack = new Text("20px", "Serif", "black", 425, 105, this.ctx, "Undead attack: ");
-    this.monsterName = new Text("38px", "Serif", "black", 35, 45, this.ctx, "Undead");
-    this.pLevel = new Text("18px", "Serif", "black", 425, 430, this.ctx, "Level ");
-    this.mLevel = new Text("18px", "Serif", "black", 35, 100, this.ctx, "Level ");
+    this.background = new Fighter(this.canvas.width, this.canvas.height, "../assets/backgrounds/grass.png", 0, 0, this.ctx);
+    this.mFighter = new Fighter(Math.floor(this.canvas.width * 0.17), Math.floor(this.canvas.height * 0.3), "../assets/monsters/undead_forward.png", Math.floor(this.canvas.width * 0.42), Math.floor(this.canvas.height * 0.1), this.ctx);
+    this.pFighter = new Fighter(Math.floor(this.canvas.width * 0.13), Math.floor(this.canvas.height * 0.2), "../assets/characters/main_up.png", Math.floor(this.canvas.width * 0.44), Math.floor(this.canvas.height * 0.7), this.ctx);
+    this.mHealth = new Health(Math.floor(this.canvas.width * 0.23), Math.floor(this.canvas.height * 0.03), Math.floor(this.canvas.width * 0.71), Math.floor(this.canvas.height * 0.04), this.ctx, this.monster);
+    this.pHealth = new Health(Math.floor(this.canvas.width * 0.23), Math.floor(this.canvas.height * 0.03), Math.floor(this.canvas.width * 0.06), Math.floor(this.canvas.height * 0.7), this.ctx, this.player);
+    this.mHealthText = new Text("1.13vw", "Serif", "black", Math.floor(this.canvas.width * 0.71), Math.floor(this.canvas.height * 0.1), this.ctx, "Undead HP: ");
+    this.pHealthText = new Text("1.13vw", "Serif", "black", Math.floor(this.canvas.width * 0.06), Math.floor(this.canvas.height * 0.76), this.ctx, "Your HP: ");
+    this.weaponType = new Text("1.25vw", "Serif", "black", Math.floor(this.canvas.width * 0.06), Math.floor(this.canvas.height * 0.86), this.ctx, "Active weapon: ");
+    this.weaponAttack = new Text("1.25vw", "Serif", "black", Math.floor(this.canvas.width * 0.06), Math.floor(this.canvas.height * 0.91), this.ctx, "Attack: ");
+    
+    this.monsterAttack = new Text("1.25vw", "Serif", "black", Math.floor(this.canvas.width * 0.71), Math.floor(this.canvas.height * 0.21), this.ctx, "Undead attack: ");
+    this.monsterAttackCanvas = this.preRenderText("1.25vw", "Serif", "black", `Undead attack: ${this.monster.weapon.damage + this.monster.level.attack}`);
+    
+    this.monsterName = new Text("2.38vw", "Serif", "black", Math.floor(this.canvas.width * 0.06), Math.floor(this.canvas.height * 0.09), this.ctx, "Undead");
+    this.monsterNameCanvas = this.preRenderText("2.38vw", "Serif", "black", "Undead");
+    
+    this.pLevel = new Text("1.13vw", "Serif", "black", Math.floor(this.canvas.width * 0.71), Math.floor(this.canvas.height * 0.86), this.ctx, "Level ");
+    this.pLevelCanvas = this.preRenderText("1.13vw", "Serif", "black", `Level: ${this.player.level.level}`);
+    
+    this.mLevel = new Text("1.13vw", "Serif", "black", Math.floor(this.canvas.width * 0.06), Math.floor(this.canvas.height * 0.2), this.ctx, "Level ");
+    this.mLevelCanvas = this.preRenderText("1.13vw", "Serif", "black", `Level: ${this.monster.level.level}`);
 
     window.addEventListener("keyup", this.startHandler);
+    requestAnimationFrame(this.updateFight);
 }
 
 Fight.prototype.clear = function clear() {
@@ -98,23 +121,42 @@ Fight.prototype.updateFight = function updateFight() {
     this.mHealthText.text = "Undead HP: " + this.monster.health;
     this.weaponType.text = "Active weapon: " + this.player.weapon;
     this.weaponAttack.text = "Attack: " + (Game.items[this.player.weapon].damage + this.player.level.attack);
-    this.monsterAttack.text = "Undead attack: " + (this.monster.weapon.damage + this.monster.level.attack);
-    this.pLevel.text = "Level " + this.player.level.level;
-    this.mLevel.text = "Level " + this.monster.level.level;
 
     this.background.update();
-    this.mFighter.update();
-    this.pFighter.update();
     this.pHealth.update();
     this.mHealth.update();
     this.pHealthText.update();
     this.mHealthText.update();
+    this.mFighter.update();
+    this.pFighter.update();
     this.weaponType.update();
     this.weaponAttack.update();
-    this.monsterAttack.update();
-    this.monsterName.update();
-    this.pLevel.update();
-    this.mLevel.update();
+
+    this.ctx.drawImage(
+        this.monsterAttackCanvas, 
+        Math.floor(this.canvas.width * 0.71), 
+        Math.floor(this.canvas.height * 0.21)
+    );
+
+    this.ctx.drawImage(
+        this.monsterNameCanvas,
+        Math.floor(this.canvas.width * 0.06), 
+        Math.floor(this.canvas.height * 0.09)
+    );
+
+    this.ctx.drawImage(
+        this.pLevelCanvas,
+        Math.floor(this.canvas.width * 0.71), 
+        Math.floor(this.canvas.height * 0.86)
+    );
+
+    this.ctx.drawImage(
+        this.mLevelCanvas,
+        Math.floor(this.canvas.width * 0.06), 
+        Math.floor(this.canvas.height * 0.2)
+    );
+
+    requestAnimationFrame(this.updateFight);
 }
 
 module.exports = Fight;

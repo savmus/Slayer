@@ -8,6 +8,8 @@ function Sprite(key, world, player, images, playCtx, handler) {
     this.images = images;
     this.playCtx = playCtx;
     this.handler = handler;
+    this.canvasWidth = screen.width * 0.44;
+    this.canvasHeight = screen.height * 0.65;
 
     this.pos = {
         'x': 39,
@@ -46,7 +48,7 @@ function Sprite(key, world, player, images, playCtx, handler) {
         "Fists": true
     };
 
-    this.message = new Message("18px", "Serif", "black", 250, 300, this.playCtx, "");
+    this.message = new Message("1.13vw", "Serif", "black", 250, 300, this.playCtx, "");
 
     this.weapon = "Fists";
     this.level = Game.levels[1];
@@ -54,30 +56,30 @@ function Sprite(key, world, player, images, playCtx, handler) {
     this.defeated = 0;
 
     this.img = this.images[this.key];
-    this.width = this.img.width;
-    this.height = this.img.height;
+    this.width = this.canvasWidth * 0.06;
+    this.height = this.canvasHeight * 0.07;
 }
 
 Sprite.prototype.draw = function draw() {
     this.playCtx.clearRect(0, 0, this.player.width, this.player.height);
     
-    if (this.pos.x < 300) {
+    if (this.pos.x < this.canvasWidth / 2) {
         this.pos2.x = this.pos.x;
-    } else if (this.pos.x > this.world.width - 300) {
-        this.pos2.x = 600 - (this.world.width - this.pos.x);
+    } else if (this.pos.x > this.world.width - (this.canvasWidth / 2)) {
+        this.pos2.x = this.canvasWidth - (this.world.width - this.pos.x);
     } else {
         this.pos2.x = this.player.width / 2;
     }
 
-    if (this.pos.y < 250) {
+    if (this.pos.y < this.canvasHeight / 2) {
         this.pos2.y = this.pos.y;
-    } else if (this.pos.y > this.world.height - 250) {
-        this.pos2.y = 500 - (this.world.height - this.pos.y);
+    } else if (this.pos.y > this.world.height - (this.canvasHeight / 2)) {
+        this.pos2.y = this.canvasHeight - (this.world.height - this.pos.y);
     } else {
         this.pos2.y = this.player.height / 2;
     }
 
-    this.playCtx.drawImage(this.img, this.pos2.x, this.pos2.y);
+    this.playCtx.drawImage(this.img, this.pos2.x, this.pos2.y, this.width, this.height);
     this.message.update();
 };
 
@@ -88,7 +90,7 @@ Sprite.prototype.addItem = function addItem(item) {
 
         let found = item.adj + item.name.toLowerCase();
 
-        this.message = new Message("18px", "Serif", "black", 240, 300, this.playCtx, `You found ${found}!`);
+        this.message = new Message("1.13vw", "Serif", "black", 240, 300, this.playCtx, `You found ${found}!`);
 
         menu.innerHTML += `<div class='option' id='${item.name}'>${item.name} +${item.health}</div>`;
     } else {
@@ -98,12 +100,12 @@ Sprite.prototype.addItem = function addItem(item) {
             this.inventory.weapons.push(item);
             this.weapons[item.name] = true;
 
-            this.message = new Message("18px", "Serif", "black", 240, 300, this.playCtx, `You found ${found}!`);
+            this.message = new Message("1.13vw", "Serif", "black", 240, 300, this.playCtx, `You found ${found}!`);
 
             let menu = document.getElementById("weapons");
             menu.innerHTML += `<div class='weapon' id='${item.name}'>${item.name} atk${item.damage}</div>`;
         } else {
-            this.message = new Message("18px", "Serif", "black", 250, 300, this.playCtx, `You already have ${found}...`);
+            this.message = new Message("1.13vw", "Serif", "black", 250, 300, this.playCtx, `You already have ${found}...`);
         }
     }
 }

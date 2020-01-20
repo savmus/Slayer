@@ -64,6 +64,7 @@ ul.icons {
     cursor: default;
     list-style: none;
     padding-left: 0;
+    font-size: 1.23vw;
 }
 
 ul.icons li {
@@ -72,7 +73,7 @@ ul.icons li {
 }
 
 ul.icons li:last-child {
-    padding: 0;
+    padding-right: 1vw;
 }
 
 #footer a {
@@ -84,10 +85,11 @@ a:-webkit-any-link {
 }
 
 #footer .copyright {
-    font-size: 0.8em;
+    font-size: 0.99vw;
     list-style: none;
     margin: 2em 0 0 0;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 1vw;
 }
 
 #footer .copyright li:first-child {
